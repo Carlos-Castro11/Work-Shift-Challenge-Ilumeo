@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		--background: 0 0% 93%;
+		--foreground: 240 10% 15%;
+		--card: 0 0% 100%;
+		--card-foreground: 240 10% 3.9%;
+		--popover: 0 0% 96%;
+		--popover-foreground: 240 10% 45%;
+		--primary: 33.5 96.9% 48.2%;
+		--primary-foreground: 33.5 96.9% 28.2%;
+		--secondary: 240 4.8% 80%;
+		--secondary-foreground: 240 5.9% 10%;
+		--muted: 240 4.8% 95.9%;
+		--muted-foreground: 240 3.8% 46.1%;
+		--accent: 240 4.8% 95.9%;
+		--accent-foreground: 240 5.9% 10%;
+		--destructive: 0 84.2% 60.2%;
+		--destructive-foreground: 0 0% 98%;
+		--border: 240 5.9% 90%;
+		--input: 240 5.9% 90%;
+		--radius: 0.5rem;
+		--background-secondary: 0 0% 100%;
+		--text-color: 0 0% 20%;
+		--text-color-secondary: 0 0% 45%;
+		--border-color-accordian: 0 0% 60%;
+		--card-background: 0 0% 96%;
+		--card-background-secondary: 0 0% 100%;
+		--accordian-background: 0 0% 100%;
+		--accordian-background-secondary: 0 0% 90%;
+		--font-primary: "Lato";
+		--font-secondary: "Poppins";
+		--font-display: "Montserrat";
+		--red-primary: 0 100% 50%; /* Tailwind red-800 */
+		--red-secondary: 0 100% 85%; /* Tailwind red-100 */
+
+		--cyan-primary: 187 100% 38%; /* Tailwind cyan-800 */
+		--cyan-secondary: 187 100% 85%; /* Tailwind cyan-100 */
+
+		--amber-primary: 43 100% 55%; /* Tailwind amber-800 */
+		--amber-secondary: 43 100% 85%; /* Tailwind amber-100 */
+
+		--emerald-primary: 152 69% 50%; /* Tailwind emerald-800 */
+		--emerald-secondary: 152 69% 84%; /* Tailwind emerald-100 */
+	}
+
+	.dark {
+		--background: 0 0% 13%;
+		--foreground: 0 0% 95%;
+		--card: 24 9.8% 10%;
+		--card-foreground: 0 0% 95%;
+		--popover: 0 0% 9%;
+		--popover-foreground: 0 0% 95%;
+		--primary: 33.5 96.9% 48.2%;
+		--primary-foreground: 33.5 96.9% 28.2%;
+		--secondary: 240 3.7% 30%;
+		--secondary-foreground: 0 0% 98%;
+		--muted: 0 0% 15%;
+		--muted-foreground: 240 5% 64.9%;
+		--accent: 12 6.5% 15.1%;
+		--accent-foreground: 0 0% 98%;
+		--destructive: 0 62.8% 30.6%;
+		--destructive-foreground: 0 85.7% 97.3%;
+		--border: 240 3.7% 15.9%;
+		--input: 240 3.7% 15.9%;
+		--radius: 0.5rem;
+		--background-secondary: 0 0% 17%;
+		--text-color: 0 0% 100%;
+		--text-color-secondary: 0 0% 70%;
+		--border-color-accordian: 0 0% 80%;
+		--card-background: 0 0% 18%;
+		--card-background-secondary: 0 0% 14%;
+		--accordian-background: 0 0% 18%;
+		--accordian-background-secondary: 0 0% 14%;
+		--font-primary: "Lato";
+		--font-secondary: "Poppins";
+		--font-display: "Montserrat";
+		--red-primary: 0 84.2% 60.2%; /* Tailwind red-500 */
+		--red-secondary: 0 93.5% 85.6%; /* Tailwind red-200 */
+
+		--cyan-primary: 187 96.5% 42.7%; /* Tailwind cyan-500 */
+		--cyan-secondary: 187 92.6% 76.3%; /* Tailwind cyan-200 */
+
+		--amber-primary: 43.9 96.4% 56.1%; /* Tailwind amber-500 */
+		--amber-secondary: 43.7 96.4% 76.5%; /* Tailwind amber-200 */
+
+		--emerald-primary: 152.4 69.6% 42.7%; /* Tailwind emerald-500 */
+		--emerald-secondary: 151.8 76.1% 73.5%; /* Tailwind emerald-200 */
+	}
+}
+
+.container {
+	max-width: 1400px;
+	margin: 0 auto;
+}
+
+html,
+body,
+#root {
+	overflow-x: hidden;
+}
