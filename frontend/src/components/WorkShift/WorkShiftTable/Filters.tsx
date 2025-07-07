@@ -98,6 +98,7 @@ export function WorkShiftTableFilter() {
           closed: 'Finalizados',
         }}
         onChangeExtra={() => handleSubmit(updateParams)()}
+        width="w-[180px]"
       />
 
       <FilterSelect
@@ -113,6 +114,7 @@ export function WorkShiftTableFilter() {
           '<5h': 'menor que 5h',
         }}
         onChangeExtra={() => handleSubmit(updateParams)()}
+        width="w-[180px]"
       />
 
       <FilterSelect
@@ -126,6 +128,7 @@ export function WorkShiftTableFilter() {
           afternoon: 'Depois do meio-dia',
         }}
         onChangeExtra={() => handleSubmit(updateParams)()}
+        width="w-[180px]"
       />
 
       <FilterSelect
@@ -139,12 +142,13 @@ export function WorkShiftTableFilter() {
           afternoon: 'Depois do meio-dia',
         }}
         onChangeExtra={() => handleSubmit(updateParams)()}
+        width="w-[180px]"
       />
 
       <Button
         onClick={handleClearFilters}
         type="button"
-        variant="default"
+        variant="destructive"
         size="sm"
         className="text-xs flex items-center gap-1 place-self-end">
         <X className="w-3 h-3" />

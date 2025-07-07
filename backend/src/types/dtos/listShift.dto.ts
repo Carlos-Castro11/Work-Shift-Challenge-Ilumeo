@@ -29,7 +29,6 @@ export const listShiftsSchema = z.object({
 
   endPeriod: z.enum(['morning', 'afternoon', 'all']).optional(),
 
-  // Mantido para compatibilidade (caso use filtros por mês)
   filter: z.enum(['last10days', 'month']).optional(),
 
   month: z

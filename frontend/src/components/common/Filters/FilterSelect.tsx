@@ -36,7 +36,7 @@ export function FilterSelect<
   control,
   options,
   display,
-  width = 'w-[160px]',
+  width = 'w-[fit]',
   onChangeExtra,
   label,
 }: FilterSelectProps<TFieldValues, TFieldName, TValue>) {

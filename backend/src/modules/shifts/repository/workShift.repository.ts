@@ -1,6 +1,13 @@
-import type { Prisma, WorkShift } from '@prisma/client'
+import type { WorkShift } from '@prisma/client'
 import { prisma } from '@/lib/prisma'
 import type { ListShiftsDTO } from '@/types/dtos/listShift.dto'
+import {
+  applyDurationFilter,
+  applyPeriodFilters,
+  buildDateFilters,
+  buildMonthFilter,
+  buildStatusFilter,
+} from './filters/buildFilters'
 
 export interface IWorkShiftRepository {
   getWorkShiftsByUserWithFilters(
@@ -18,9 +25,8 @@ export interface IWorkShiftRepository {
 }
 
 export const workShiftRepository: IWorkShiftRepository = {
-  getWorkShiftsByUserWithFilters: async (
-    userId,
-    {
+  getWorkShiftsByUserWithFilters: async (userId, filters) => {
+    const {
       page = 1,
       limit = 10,
       filterDateRange,
@@ -29,49 +35,17 @@ export const workShiftRepository: IWorkShiftRepository = {
       duration,
       startPeriod,
       endPeriod,
-    },
-  ) => {
+    } = filters
+
     const skip = (page - 1) * limit
-    const now = new Date()
 
-    const where: Prisma.WorkShiftWhereInput = { userId }
-    const andFilters: Prisma.WorkShiftWhereInput[] = []
-
-    if (filterDateRange === 'today') {
-      const start = new Date()
-      start.setHours(0, 0, 0, 0)
-      const end = new Date()
-      end.setHours(23, 59, 59, 999)
-      andFilters.push({ start: { gte: start, lte: end } })
-    }
-
-    if (filterDateRange === 'last10days') {
-      const from = new Date()
-      from.setDate(now.getDate() - 10)
-      andFilters.push({ start: { gte: from, lte: now } })
-    }
-
-    if (filterDateRange === 'last30days') {
-      const from = new Date()
-      from.setDate(now.getDate() - 30)
-      andFilters.push({ start: { gte: from, lte: now } })
-    }
-
-    if (month) {
-      const [year, monthStr] = month.split('-')
-      const startDate = new Date(Number(year), Number(monthStr) - 1, 1)
-      const endDate = new Date(Number(year), Number(monthStr), 0, 23, 59, 59)
-      andFilters.push({ start: { gte: startDate, lte: endDate } })
-    }
-
-    if (status === 'open') {
-      andFilters.push({ end: null })
-    } else if (status === 'closed') {
-      andFilters.push({ end: { not: null } })
-    }
-
-    if (andFilters.length > 0) {
-      where.AND = andFilters
+    const where = {
+      userId,
+      AND: [
+        ...buildDateFilters(filterDateRange),
+        ...buildMonthFilter(month),
+        ...buildStatusFilter(status),
+      ],
     }
 
     let all = await prisma.workShift.findMany({
@@ -79,37 +53,8 @@ export const workShiftRepository: IWorkShiftRepository = {
       orderBy: { start: 'desc' },
     })
 
-    if (startPeriod && startPeriod !== 'all') {
-      all = all.filter((shift) => {
-        const hour = new Date(shift.start).getHours()
-        return startPeriod === 'morning' ? hour < 12 : hour >= 12
-      })
-    }
-
-    if (endPeriod && endPeriod !== 'all') {
-      all = all.filter((shift) => {
-        if (!shift.end) return false
-        const hour = new Date(shift.end).getHours()
-        return endPeriod === 'morning' ? hour < 12 : hour >= 12
-      })
-    }
-
-    if (duration && duration !== 'all') {
-      const thresholds: Record<string, number> = {
-        '>1h': 1 * 60 * 60 * 1000,
-        '<1h': 1 * 60 * 60 * 1000,
-        '>5h': 5 * 60 * 60 * 1000,
-        '<5h': 5 * 60 * 60 * 1000,
-      }
-
-      all = all.filter((shift) => {
-        if (!shift.end) return false
-        const diff =
-          new Date(shift.end).getTime() - new Date(shift.start).getTime()
-        const threshold = thresholds[duration]
-        return duration.startsWith('>') ? diff > threshold : diff < threshold
-      })
-    }
+    all = applyPeriodFilters(all, startPeriod, endPeriod)
+    all = applyDurationFilter(all, duration)
 
     const paginated = all.slice(skip, skip + limit)
 

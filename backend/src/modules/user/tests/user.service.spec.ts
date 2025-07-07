@@ -37,7 +37,7 @@ describe('UserService - createUser', () => {
     vi.mocked(userRepository.findByEmail).mockResolvedValue(null)
     vi.mocked(userRepository.create).mockResolvedValue(fakeUser)
 
-    const created = await userService.createUser(data)
+    const created = await userService.create(data)
 
     expect(created).toEqual(fakeUser)
     expect(userRepository.findByEmail).toHaveBeenCalledWith(data.email)
@@ -48,7 +48,7 @@ describe('UserService - createUser', () => {
     vi.mocked(userRepository.findByEmail).mockResolvedValue({} as User)
 
     await expect(
-      userService.createUser({
+      userService.create({
         name: 'Carlos',
         email: 'carlos@gmail.com',
         password: '123456',

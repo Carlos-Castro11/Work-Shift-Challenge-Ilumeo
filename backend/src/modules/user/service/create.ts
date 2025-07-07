@@ -3,7 +3,7 @@ import bcrypt from 'bcryptjs'
 import type { CreateUserDTO } from '@/types/dtos/createUser.dto'
 import type { IUserRepository } from '../repository/user.repository'
 
-export async function createUser(
+export async function create(
   data: CreateUserDTO,
   userRepository: IUserRepository,
 ): Promise<User> {

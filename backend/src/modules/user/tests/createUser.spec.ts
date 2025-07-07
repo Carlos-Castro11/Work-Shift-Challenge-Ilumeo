@@ -2,9 +2,9 @@ import type { User } from '@prisma/client'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import type { CreateUserDTO } from '@/types/dtos/createUser.dto'
 import type { IUserRepository } from '../repository/user.repository'
-import { createUser } from '../service/createUser'
+import { create } from '../service/create'
 
-describe('createUser', () => {
+describe('create', () => {
   let userRepository: IUserRepository
 
   beforeEach(() => {
@@ -32,7 +32,7 @@ describe('createUser', () => {
     vi.mocked(userRepository.findByEmail).mockResolvedValue(null)
     vi.mocked(userRepository.create).mockResolvedValue(fakeUser)
 
-    const created = await createUser(data, userRepository)
+    const created = await create(data, userRepository)
 
     expect(created).toEqual(fakeUser)
     expect(userRepository.findByEmail).toHaveBeenCalledWith(data.email)
@@ -43,7 +43,7 @@ describe('createUser', () => {
     vi.mocked(userRepository.findByEmail).mockResolvedValue({} as User)
 
     await expect(
-      createUser(
+      create(
         {
           name: 'Carlos',
           email: 'carlos@gmail.com',

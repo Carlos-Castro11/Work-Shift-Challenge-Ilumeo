@@ -14,7 +14,7 @@ export class UserController {
     }
 
     try {
-      const user = await this.userService.createUser(validation.data)
+      const user = await this.userService.create(validation.data)
       res.status(201).json(user)
     } catch (error) {
       res.status(400).json({ error: (error as Error).message })

@@ -36,7 +36,7 @@ describe('list work shifts service', () => {
     expect(result).toEqual({
       data: mockData.workShifts,
       pagination: {
-        page: 2,
+        currentPage: 2,
         limit: 5,
         total: 20,
         totalPages: 4,
@@ -61,7 +61,7 @@ describe('list work shifts service', () => {
 
     const result = await list(userId, filters, mockRepo)
 
-    expect(result.pagination.page).toBe(1)
+    expect(result.pagination.currentPage).toBe(1)
     expect(result.pagination.limit).toBe(10)
     expect(result.pagination.totalPages).toBe(0)
   })

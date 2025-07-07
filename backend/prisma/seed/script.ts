@@ -8,7 +8,6 @@ async function main() {
   const password = '123456'
   const hashedPassword = await bcrypt.hash(password, 10)
 
-  // Verifica se o usuário já existe
   let user = await prisma.user.findUnique({
     where: { email },
   })
@@ -23,7 +22,6 @@ async function main() {
     })
   }
 
-  // Verifica se já existem registros de ponto
   const existingShifts = await prisma.workShift.count({
     where: { userId: user.id },
   })

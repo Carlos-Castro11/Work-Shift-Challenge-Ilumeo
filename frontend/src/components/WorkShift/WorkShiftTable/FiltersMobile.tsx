@@ -140,7 +140,7 @@ export function FiltersMobile() {
             }}
           />
         </div>
-        <div className="grid grid-cols-2 gap-4 mt-4">
+        <div className="grid grid-cols-2 gap-4 mt-6">
           <Button
             onClick={handleClearFilters}
             type="button"

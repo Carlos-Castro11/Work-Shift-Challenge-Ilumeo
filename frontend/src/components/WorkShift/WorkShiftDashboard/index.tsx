@@ -7,9 +7,8 @@ export default function ShiftDashboard() {
   const isDesktop = useMedia('(min-width: 1024px)')
 
   return (
-    <div
-      className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start text-foreground">
-      {isDesktop && <WorkShiftInfo />}
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start text-foreground">
+      <WorkShiftInfo />
       <WorkShiftClockAndControls />
       {isDesktop && <WorkShiftWarning />}
     </div>

@@ -6,6 +6,7 @@ import { getValidParam } from '@/utils/getValidParams'
 import { useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
+import FadeIn from '@/components/common/Animations/FadeIn'
 import {
   dateOptions,
   durationOptions,
@@ -93,7 +94,7 @@ export function WorkShiftTable() {
   }
 
   return (
-    <>
+    <FadeIn direction="bottom" className="space-y-4">
       <div className="text-foreground rounded-md border border-background-secondary">
         <Table>
           <TableHeader>
@@ -116,6 +117,6 @@ export function WorkShiftTable() {
           }}
         />
       )}
-    </>
+    </FadeIn>
   )
 }

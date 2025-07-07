@@ -44,7 +44,7 @@ describe('start work shift service', () => {
     }
 
     mockRepo.findLastOpenWorkShiftByUser = vi.fn().mockResolvedValue(openShift)
-    mockRepo.createWorkShift = vi.fn() // importante para o `.not.toHaveBeenCalled()` funcionar
+    mockRepo.createWorkShift = vi.fn()
 
     const exec = () => start(userId, mockRepo)
 
