@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "seed": "tsx prisma/seed/script.ts"
+    "seed": "tsx prisma/seed/script.ts",
+    "build": "tsc && node scripts/fix-path-aliases.mjs"
   },
   "prisma": {
     "seed": "tsx prisma/seed/script.ts"

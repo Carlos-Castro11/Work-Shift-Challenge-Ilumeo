@@ -4,7 +4,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import useMedia from '@/hooks/useMedia'
 import { useAuthStore } from '@/store/useAuthStore'
-import profileImg from '../../assets/images/Profile.avif'
+import profileImg from '../../assets/images/profile.avif'
 
 export default function Profile() {
   const user = useAuthStore((state) => state.user)
