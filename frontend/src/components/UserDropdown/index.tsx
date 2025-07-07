@@ -4,6 +4,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import { Skeleton } from '@/components/ui/skeleton'
 import { useLogout } from '@/hooks/user/useLogout'
 import { useAuthStore } from '@/store/useAuthStore'
 import { ChevronDown, LogOut, User } from 'lucide-react'
@@ -15,9 +16,15 @@ export function UserDropdown() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <div className="w-fit items-center flex text-foreground border border-primary-foreground gap-2 px-3 py-1 rounded-md cursor-pointer text-sm font-medium hover:bg-accent transition">
+        <div className="w-fit items-center flex text-foreground border border-primary-foreground bg-background-secondary gap-2 px-3 py-1 rounded-md cursor-pointer text-sm font-medium hover:bg-background transition">
           <User className="w-4 h-4 text-primary" />
-          <span>{user?.name}</span>
+
+          {user ? (
+            <span>{user.name}</span>
+          ) : (
+            <Skeleton className="h-5 w-20 rounded-md" />
+          )}
+
           <ChevronDown className="w-4 h-4 text-primary" />
         </div>
       </DropdownMenuTrigger>

@@ -76,9 +76,9 @@ export function WorkShiftTable() {
   if (shouldShowLoading) {
     return (
       <div className="space-y-2">
-        {[...Array(3)].map((_, i) => (
+        {[...Array(10)].map((_, i) => (
           // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-          <Skeleton key={i} className="h-8 w-full rounded-md" />
+          <Skeleton key={i} className="h-12 w-full rounded-md" />
         ))}
       </div>
     )

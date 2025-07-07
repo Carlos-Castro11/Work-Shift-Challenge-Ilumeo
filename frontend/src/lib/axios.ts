@@ -21,7 +21,6 @@ api.interceptors.response.use(
       toast.error('Sessão expirada. Faça login novamente.', {
         id: 'auth-expired',
       })
-      window.location.href = '/login'
     }
 
     return Promise.reject(error)

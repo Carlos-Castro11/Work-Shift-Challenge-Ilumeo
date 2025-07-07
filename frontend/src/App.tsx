@@ -22,7 +22,7 @@ export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <HelmetProvider>
-        <Helmet titleTemplate="%s | Fx" />
+        <Helmet titleTemplate="%s | Ilumeo" />
         <BrowserRouter>
           <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
             <Toaster

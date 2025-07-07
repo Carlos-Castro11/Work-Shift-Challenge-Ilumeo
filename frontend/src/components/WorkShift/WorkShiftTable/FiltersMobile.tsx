@@ -49,7 +49,7 @@ export function FiltersMobile() {
       urlState.set('page', '1')
       return urlState
     })
-    setOpen(false) // ✅ Fecha o modal após aplicar filtros
+    setOpen(false)
   }
 
   function handleClearFilters() {
@@ -87,7 +87,7 @@ export function FiltersMobile() {
             control={control}
             options={dateOptions}
             display={{
-              all: 'Todos períodos',
+              all: 'Todos',
               today: 'Hoje',
               last10days: 'Últimos 10 dias',
               last30days: 'Últimos 30 dias',
@@ -123,7 +123,7 @@ export function FiltersMobile() {
             control={control}
             options={periodOptions}
             display={{
-              all: 'Todos horários',
+              all: 'Todos',
               morning: 'Antes do meio-dia',
               afternoon: 'Depois do meio-dia',
             }}
@@ -134,7 +134,7 @@ export function FiltersMobile() {
             control={control}
             options={periodOptions}
             display={{
-              all: 'Todos horários',
+              all: 'Todos',
               morning: 'Antes do meio-dia',
               afternoon: 'Depois do meio-dia',
             }}

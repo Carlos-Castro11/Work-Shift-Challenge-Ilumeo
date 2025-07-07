@@ -78,7 +78,7 @@ export function WorkShiftTableFilter() {
         control={control}
         options={dateOptions}
         display={{
-          all: 'Todos períodos',
+          all: 'Todos',
           today: 'Hoje',
           last10days: 'Últimos 10 dias',
           last30days: 'Últimos 30 dias',
@@ -121,7 +121,7 @@ export function WorkShiftTableFilter() {
         control={control}
         options={periodOptions}
         display={{
-          all: 'Todos horários',
+          all: 'Todos',
           morning: 'Antes do meio-dia',
           afternoon: 'Depois do meio-dia',
         }}
@@ -134,7 +134,7 @@ export function WorkShiftTableFilter() {
         control={control}
         options={periodOptions}
         display={{
-          all: 'Todos horários',
+          all: 'Todos',
           morning: 'Antes do meio-dia',
           afternoon: 'Depois do meio-dia',
         }}

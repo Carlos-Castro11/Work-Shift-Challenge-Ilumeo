@@ -9,10 +9,6 @@ import { useTodayShiftStore } from '@/store/useTodayWotkShiftStore'
 import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 
-export type LayoutContextType = {
-  setFilters: (filters: React.ReactNode | null) => void
-}
-
 export default function DefaultLayout() {
   const { data } = useUserQuery()
   const { data: shifts } = useTodayShifts()

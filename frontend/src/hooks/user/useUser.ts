@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 export function useUserQuery() {
   const token = localStorage.getItem('token')
+  const shouldFetch = !!token && token !== 'undefined' && token.trim() !== ''
   const navigate = useNavigate()
 
   const query = useQuery({
@@ -13,7 +14,7 @@ export function useUserQuery() {
     queryFn: getMe,
     retry: false,
     staleTime: 1000 * 60 * 5,
-    enabled: !!token,
+    enabled: shouldFetch,
   })
 
   useEffect(() => {

@@ -1,4 +1,3 @@
-// src/api/auth.ts
 import { api } from '@/lib/axios'
 import type { IUser } from '@/types/User'
 

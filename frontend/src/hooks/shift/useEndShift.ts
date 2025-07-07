@@ -9,14 +9,16 @@ export function useEndShiftMutation() {
   return useMutation({
     mutationFn: endShift,
     onSuccess: () => {
-      toast.success('Turno finalizado com sucesso', { id: 'end-shift-success' })
+      toast.success('Turno finalizado com sucesso', {
+        id: 'end-shift-success',
+      })
 
-      queryClient.invalidateQueries({ queryKey: ['today-shifts'] })
-      queryClient.invalidateQueries({ queryKey: ['work-shifts-history'] })
+      queryClient.refetchQueries({ queryKey: ['today-shifts'] })
+      queryClient.refetchQueries({ queryKey: ['work-shifts-history'] })
     },
     onError: (err: unknown) => {
       const message = errorHelper(err)
-      toast.error(message)
+      toast.error(message, { id: 'end-shift-error' })
     },
   })
 }

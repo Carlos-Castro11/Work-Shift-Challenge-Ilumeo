@@ -18,7 +18,7 @@ export default function MenuHeader() {
               <Sparkles size={20} />
             </i>
             <span className="uppercase text-foreground text-lg font-display text-nowrap">
-              FX WORK SHIFT
+              Ilumeo Wks
             </span>
           </div>
         </Link>

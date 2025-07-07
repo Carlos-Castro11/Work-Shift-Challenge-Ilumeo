@@ -9,7 +9,7 @@ export const filtersMap = [
     label: 'Período',
     options: dateOptions,
     display: {
-      all: 'Todos períodos',
+      all: 'Todos',
       today: 'Hoje',
       last10days: 'Últimos 10 dias',
       last30days: 'Últimos 30 dias',

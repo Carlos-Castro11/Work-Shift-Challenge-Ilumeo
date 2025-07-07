@@ -1,5 +1,6 @@
-import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
 import type { ReactNode } from 'react'
+import clsx from 'clsx'
 
 type Direction = 'top' | 'bottom' | 'left' | 'right'
 
@@ -20,29 +21,41 @@ export default function FadeIn({
   className,
   onClick,
 }: FadeInProps) {
-  const getInitialPosition = () => {
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setVisible(true), delay * 1000)
+    return () => clearTimeout(timeout)
+  }, [delay])
+
+  const getTranslateClass = () => {
     switch (direction) {
       case 'top':
-        return { opacity: 0, y: -20 }
+        return 'translate-y-[-20px]'
       case 'bottom':
-        return { opacity: 0, y: 20 }
+        return 'translate-y-[20px]'
       case 'left':
-        return { opacity: 0, x: -20 }
+        return 'translate-x-[-20px]'
       case 'right':
-        return { opacity: 0, x: 20 }
+        return 'translate-x-[20px]'
       default:
-        return { opacity: 0 }
+        return ''
     }
   }
 
   return (
-    <motion.div
-      initial={getInitialPosition()}
-      animate={{ opacity: 1, x: 0, y: 0 }}
-      transition={{ duration, delay, ease: 'easeOut' }}
-      className={className}
-      onClick={onClick}>
+    <div
+      onClick={onClick}
+      style={{
+        transition: `opacity ${duration}s ease-out, transform ${duration}s ease-out`,
+      }}
+      className={clsx(
+        className,
+        !visible && 'opacity-0',
+        visible && 'opacity-100 translate-x-0 translate-y-0',
+        !visible && getTranslateClass()
+      )}>
       {children}
-    </motion.div>
+    </div>
   )
 }

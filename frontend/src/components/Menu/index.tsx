@@ -33,7 +33,6 @@ export default function Menu() {
   const { isMenuExpanded } = useIsMenuExpanded()
   const isDesktop = useMedia('(min-width: 1024px)')
 
-  // Condições de estilo
   const menuWidth = isMenuExpanded ? 250 : 60
 
   return (

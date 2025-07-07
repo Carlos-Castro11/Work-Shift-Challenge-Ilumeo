@@ -9,8 +9,10 @@ export function useWorkShiftHistory(params: GetWorkShiftHistoryParams) {
   const token = localStorage.getItem('token')
 
   return useQuery<GetWorkShiftHistoryResponse, Error>({
-    enabled: !!token,
     queryKey: ['work-shifts-history', params],
     queryFn: () => getWorkShiftHistory(params),
+    enabled: !!token,
+    placeholderData: (previousData) => previousData,
+    staleTime: 1000 * 60 * 2,
   })
 }

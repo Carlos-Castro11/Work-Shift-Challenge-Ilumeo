@@ -4,40 +4,6 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
-      keyframes: {
-        'pulse-right': {
-          '0%, 100%': { transform: 'translateX(0)' },
-          '50%': { transform: 'translateX(5px)' },
-        },
-        'pulse-down': {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(5px)' },
-        },
-        'spin-on-hover': {
-          '0%': { transform: 'rotate(0deg)' },
-          '100%': { transform: 'rotate(360deg)' },
-        },
-        'slide-in-top': {
-          '0%': { opacity: '0', transform: 'translateY(-20px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
-        'slide-in-bottom': {
-          '0%': { opacity: '0', transform: 'translateY(20px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
-        'slide-in-left': {
-          '0%': { opacity: '0', transform: 'translateX(-20px)' },
-          '100%': { opacity: '1', transform: 'translateX(0)' },
-        },
-        'slide-in-right': {
-          '0%': { opacity: '0', transform: 'translateX(20px)' },
-          '100%': { opacity: '1', transform: 'translateX(0)' },
-        },
-        'hover-scale': {
-          '0%': { transform: 'scale(1)' },
-          '100%': { transform: 'scale(1.05)' },
-        },
-      },
       animation: {
         'pulse-right': 'pulse-right 1s ease-in-out infinite',
         'pulse-down': 'pulse-down 1s ease-in-out infinite',
@@ -50,6 +16,8 @@ export default {
           '0 0 0 2px hsl(var(--primary)), 0 0 0 2px hsl(var(--primary-foreground))',
         'hover-button-default':
           '0 0 0 2px hsl(var(--primary-foreground)), 0 0 0 2px hsl(var(--primary))',
+        'hover-button-destructive':
+          '0 0 0 2px hsl(var(--red-primary)), 0 0 0 2px hsl(var(--primary))',
         hover:
           '0 0 0 .5px hsl(var(--primary)), 0 0 0 1px hsl(var(--primary-foreground))',
         'hover-cyan':

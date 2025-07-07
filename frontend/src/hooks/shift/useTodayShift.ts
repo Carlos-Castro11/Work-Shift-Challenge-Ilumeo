@@ -8,5 +8,8 @@ export function useTodayShifts() {
     queryKey: ['today-shifts'],
     queryFn: getTodayShift,
     enabled: !!token,
+    refetchOnWindowFocus: false,
+    refetchOnMount: false,
+    refetchOnReconnect: false,
   })
 }

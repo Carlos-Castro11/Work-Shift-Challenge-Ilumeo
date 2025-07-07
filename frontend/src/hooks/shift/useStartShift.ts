@@ -9,14 +9,16 @@ export function useStartShiftMutation() {
   return useMutation({
     mutationFn: startShift,
     onSuccess: () => {
-      toast.success('Turno iniciado com sucesso', { id: 'start-shift-success' })
+      toast.success('Turno iniciado com sucesso', {
+        id: 'start-shift-success',
+      })
 
-      queryClient.invalidateQueries({ queryKey: ['today-shifts'] })
-      queryClient.invalidateQueries({ queryKey: ['work-shifts-history'] })
+      queryClient.refetchQueries({ queryKey: ['today-shifts'] })
+      queryClient.refetchQueries({ queryKey: ['work-shifts-history'] })
     },
     onError: (err: unknown) => {
       const message = errorHelper(err)
-      toast.error(message)
+      toast.error(message, { id: 'start-shift-error' })
     },
   })
 }
