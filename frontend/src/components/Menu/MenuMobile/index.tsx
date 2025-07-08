@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { useLogout } from '@/hooks/user/useLogout'
 import { useIsMenuExpandedStore } from '@/store/useMenuExpandedStore'
+import { LogOut } from 'lucide-react'
 import { menuList } from '..'
 import MenuHamburguer from '../MenuButton'
 import MenuItem from '../MenuItem'
@@ -24,9 +25,14 @@ export default function MenuMobile() {
               onClick={() => menuState.setIsMenuExpanded(false)}
             />
           ))}
-          <Button onClick={logout} size={'sm'} variant={'destructive'}>
-            Logout
-          </Button>
+          <div
+            onClick={logout}
+            className="flex gap-3 font-primary items-center text-sm p-2 cursor-pointer bg-background rounded-md text-foreground transition-colors duration-300 hover:bg-accent">
+            <i className="text-destructive">
+              <LogOut />
+            </i>
+            <span>Logout</span>
+          </div>
         </nav>
       )}
     </>

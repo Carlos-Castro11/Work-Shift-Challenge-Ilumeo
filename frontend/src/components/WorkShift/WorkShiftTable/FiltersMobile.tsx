@@ -94,7 +94,7 @@ export function FiltersMobile() {
           <Button
             onClick={handleClear}
             type="button"
-            variant="destructive"
+            variant="secondary"
             size="sm"
             className="gap-1 text-xs">
             <X className="w-3 h-3" />

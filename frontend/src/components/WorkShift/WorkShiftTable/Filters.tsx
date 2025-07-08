@@ -93,7 +93,7 @@ export function WorkShiftTableFilter() {
       <Button
         onClick={clearFilters}
         type="button"
-        variant="destructive"
+        variant="secondary"
         size="sm"
         className="text-xs flex items-center gap-1 place-self-end">
         <X className="w-3 h-3" />

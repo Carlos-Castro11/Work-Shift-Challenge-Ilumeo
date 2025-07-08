@@ -52,22 +52,24 @@ export default function WorkShiftClockAndControls() {
   }, [running])
 
   const handleStart = () => {
+    setRunning(true)
     startMutation.mutate(undefined, {
       onSuccess: (newShift) => {
         const start = new Date(newShift.start).getTime()
         setMs(Date.now() - start)
-        setRunning(true)
       },
+      onError: () => setRunning(false),
     })
   }
 
   const handleEnd = () => {
+    setRunning(false)
     endMutation.mutate(undefined, {
-      onSuccess: () => setRunning(false),
+      onError: () => setRunning(true),
     })
   }
 
-  const { hours, minutes, seconds } = msToTimeParts(ms)
+  const { hours, minutes, seconds } = msToTimeParts(ms < 0 ? 0 : ms)
 
   if (isLoading || loadingClock)
     return <Skeleton className="h-full w-full rounded-md" />
