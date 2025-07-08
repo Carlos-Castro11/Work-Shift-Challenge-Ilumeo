@@ -1,10 +1,10 @@
-import { useIsMenuExpanded } from '@/store/useMenuExpanded'
+import { useIsMenuExpandedStore } from '@/store/useMenuExpandedStore'
 import { Sparkles } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import MenuButton from '../MenuButton'
 
 export default function MenuHeader() {
-  const { isMenuExpanded } = useIsMenuExpanded()
+  const { isMenuExpanded } = useIsMenuExpandedStore()
   return (
     <div className="flex gap-4 items-center justify-center">
       {isMenuExpanded && (

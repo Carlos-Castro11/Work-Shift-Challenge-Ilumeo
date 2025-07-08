@@ -10,6 +10,7 @@ import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'sonner'
 import FloatingInput from '../common/Inputs/FloatingInput.tsx'
+import LoadingButton from '../common/LoadingButton/index.tsx'
 
 export function LoginForm() {
   const form = useForm<LoginSchema>({
@@ -62,13 +63,7 @@ export function LoginForm() {
           disabled={isLoading}
           type="submit"
           className={`${isLoading && 'cursor-wait'} w-full`}>
-          {isLoading ? (
-            <span className="animate-spin">
-              <LoaderCircle />
-            </span>
-          ) : (
-            'Entrar'
-          )}
+          {isLoading ? <LoadingButton /> : 'Entrar'}
         </Button>
       </form>
     </Form>

@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 export default function useMedia(size: string) {
   const [match, setMatch] = React.useState<boolean>()
 
-  React.useEffect(() => {
+  useEffect(() => {
     function handleResize() {
       const { matches } = window.matchMedia(size)
       setMatch(matches)

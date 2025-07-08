@@ -17,6 +17,7 @@ import { Filter, X } from 'lucide-react'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useSearchParams } from 'react-router-dom'
+import { toast } from 'sonner'
 
 export function FiltersMobile() {
   const [open, setOpen] = useState(false)
@@ -70,6 +71,7 @@ export function FiltersMobile() {
       startPeriod: 'all',
       endPeriod: 'all',
     })
+    toast.success('Filtros Removidos!')
   }
 
   return (
@@ -150,7 +152,11 @@ export function FiltersMobile() {
             <X className="w-3 h-3" />
             Limpar
           </Button>
-          <Button type="submit" size="sm" className="text-xs">
+          <Button
+            onClick={() => toast.success('Filtros Aplicados!')}
+            type="submit"
+            size="sm"
+            className="text-xs">
             Aplicar filtros
           </Button>
         </div>

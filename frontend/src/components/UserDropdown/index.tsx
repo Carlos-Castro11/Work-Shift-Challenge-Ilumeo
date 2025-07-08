@@ -29,7 +29,9 @@ export function UserDropdown() {
         </div>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent align="end" className="w-40">
+      <DropdownMenuContent
+        align="end"
+        className="min-w-[--radix-dropdown-menu-trigger-width]">
         <DropdownMenuItem
           onClick={logout}
           className="flex cursor-pointer items-center gap-2 text-destructive focus:bg-destructive/10">

@@ -1,5 +1,5 @@
-import useMedia from '@/hooks/useMedia'
-import { useIsMenuExpanded } from '@/store/useMenuExpanded'
+import { useIsDesktopStore } from '@/store/useIsDesktopStore'
+import { useIsMenuExpandedStore } from '@/store/useMenuExpandedStore'
 import { Clock, User } from 'lucide-react'
 import type { ReactNode } from 'react'
 import Divider from '../common/Divider/Divider'
@@ -30,8 +30,8 @@ export const menuList = [
 ]
 
 export default function Menu() {
-  const { isMenuExpanded } = useIsMenuExpanded()
-  const isDesktop = useMedia('(min-width: 1024px)')
+  const { isMenuExpanded } = useIsMenuExpandedStore()
+  const isDesktop = useIsDesktopStore((state) => state.isDesktop)
 
   const menuWidth = isMenuExpanded ? 250 : 60
 

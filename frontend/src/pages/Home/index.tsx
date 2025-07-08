@@ -1,18 +1,15 @@
 import ShiftDashboard from '@/components/WorkShift/WorkShiftDashboard'
 import { WorkShiftTable } from '@/components/WorkShift/WorkShiftTable'
-import { WorkShiftTableFilter } from '@/components/WorkShift/WorkShiftTable/Filters'
-import { FiltersMobile } from '@/components/WorkShift/WorkShiftTable/FiltersMobile'
 import HeadPageTitle from '@/components/common/HeadPageTitle'
-import useMedia from '@/hooks/useMedia'
+import { useIsDesktopStore } from '@/store/useIsDesktopStore'
 
 export default function Home() {
-  const isDesktop = useMedia('(min-width: 768px)')
+  const isDesktop = useIsDesktopStore((state) => state.isDesktop)
   return (
     <>
       <HeadPageTitle title="Turnos" />
       <ShiftDashboard />
-      <div className="space-y-5 mt-7 lg:mt-11 overflow-hidden">
-        {isDesktop ? <WorkShiftTableFilter /> : <FiltersMobile />}
+      <div className={`${isDesktop && 'mt-10'}`}>
         <WorkShiftTable />
       </div>
     </>

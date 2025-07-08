@@ -1,6 +1,4 @@
-'use client'
-
-import { useIsMenuExpanded } from '@/store/useMenuExpanded'
+import { useIsMenuExpandedStore } from '@/store/useMenuExpandedStore'
 import { type ReactNode, useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
@@ -8,10 +6,11 @@ interface MenuItemProps {
   text: string
   icon: ReactNode
   link: string
+  onClick?: () => void
 }
 
-export default function MenuItem({ text, icon, link }: MenuItemProps) {
-  const { isMenuExpanded } = useIsMenuExpanded()
+export default function MenuItem({ text, icon, link, onClick }: MenuItemProps) {
+  const { isMenuExpanded } = useIsMenuExpandedStore()
   const { pathname } = useLocation()
   const [isLinkActive, setIsLinkActive] = useState(false)
 
@@ -22,6 +21,7 @@ export default function MenuItem({ text, icon, link }: MenuItemProps) {
   return (
     <Link
       to={link}
+      onClick={onClick}
       className="relative block focus:outline-none focus-visible:ring-0">
       <div
         className={`absolute -left-[6px] top-[5px] h-[70%] w-[2px] bg-primary shadow-lg dark:shadow-medium 

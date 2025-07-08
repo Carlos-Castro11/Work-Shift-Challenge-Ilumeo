@@ -1,5 +1,4 @@
-'use client'
-import { useIsMenuExpanded } from '@/store/useMenuExpanded'
+import { useIsMenuExpandedStore } from '@/store/useMenuExpandedStore'
 import { AnimatePresence, motion } from 'framer-motion'
 import { MenuIcon, X } from 'lucide-react'
 
@@ -10,7 +9,7 @@ const iconVariants = {
 }
 
 export default function MenuHamburguer() {
-  const { isMenuExpanded, setIsMenuExpanded } = useIsMenuExpanded()
+  const { isMenuExpanded, setIsMenuExpanded } = useIsMenuExpandedStore()
   return (
     <button
       type="button"

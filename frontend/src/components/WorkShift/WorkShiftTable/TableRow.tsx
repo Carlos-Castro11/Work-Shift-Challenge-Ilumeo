@@ -1,5 +1,5 @@
 import { TableCell, TableRow } from '@/components/ui/table'
-import useMedia from '@/hooks/useMedia'
+import { useIsDesktopStore } from '@/store/useIsDesktopStore'
 import { msToTimeParts, pad } from '@/utils/time'
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
 }
 
 export function WorkShiftRow({ id, start, end }: Props) {
-  const isDesktop = useMedia('(min-width: 768px)')
+  const isDesktop = useIsDesktopStore((state) => state.isDesktop)
   const startDate = new Date(start)
   const endDate = end ? new Date(end) : null
   const durationMs = endDate ? endDate.getTime() - startDate.getTime() : 0
@@ -33,7 +33,7 @@ export function WorkShiftRow({ id, start, end }: Props) {
             minute: '2-digit',
           })
         ) : (
-          <span>'—'</span>
+          <span>—</span>
         )}
       </TableCell>
       {isDesktop && (

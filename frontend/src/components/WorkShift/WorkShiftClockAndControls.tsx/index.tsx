@@ -1,4 +1,5 @@
 import FadeIn from '@/components/common/Animations/FadeIn'
+import LoadingButton from '@/components/common/LoadingButton'
 import { Button } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
 import { useEndShiftMutation } from '@/hooks/shift/useEndShift'
@@ -99,13 +100,13 @@ export default function WorkShiftClockAndControls() {
         <Button
           onClick={handleStart}
           disabled={running || startMutation.isPending}>
-          {startMutation.isPending ? 'Entrando...' : 'Entrar'}
+          {startMutation.isPending ? <LoadingButton /> : 'Entrar'}
         </Button>
         <Button
           variant="destructive"
           onClick={handleEnd}
           disabled={!running || endMutation.isPending}>
-          {endMutation.isPending ? 'Saindo...' : 'Sair'}
+          {endMutation.isPending ? <LoadingButton /> : 'Sair'}
         </Button>
       </div>
     </FadeIn>

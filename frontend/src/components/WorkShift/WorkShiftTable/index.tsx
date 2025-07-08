@@ -13,11 +13,15 @@ import {
   periodOptions,
   statusOptions,
 } from '@/constants/workShiftFilters'
+import { useIsDesktopStore } from '@/store/useIsDesktopStore'
+import { WorkShiftTableFilter } from './Filters'
+import { FiltersMobile } from './FiltersMobile'
 import { WorkShiftTableBody } from './TableBody'
 import { WorkShiftTableHeader } from './TableHeader'
 
 export function WorkShiftTable() {
   const [searchParams, setSearchParams] = useSearchParams()
+  const isDesktop = useIsDesktopStore((state) => state.isDesktop)
 
   const rawPage = searchParams.get('page')
   const parsedPage = Number(rawPage)
@@ -58,7 +62,6 @@ export function WorkShiftTable() {
 
   const shifts = data?.data ?? []
   const pagination = data?.pagination
-
   useEffect(() => {
     if (!pagination) return
 
@@ -71,10 +74,9 @@ export function WorkShiftTable() {
     }
   }, [pagination, page, setSearchParams])
 
-  const shouldShowLoading = isLoading
   const shouldShowEmpty = !isLoading && shifts.length === 0
 
-  if (shouldShowLoading) {
+  if (isLoading) {
     return (
       <div className="space-y-2">
         {[...Array(10)].map((_, i) => (
@@ -87,14 +89,15 @@ export function WorkShiftTable() {
 
   if (shouldShowEmpty) {
     return (
-      <p className="text-muted-foreground font-secondary">
+      <p className="text-muted-foreground font-secondary text-xs md:text-sm">
         Nenhum turno registrado no período solicitado.
       </p>
     )
   }
 
   return (
-    <FadeIn direction="bottom" className="space-y-4">
+    <FadeIn direction="bottom" className="space-y-5">
+      {isDesktop ? <WorkShiftTableFilter /> : <FiltersMobile />}
       <div className="text-foreground rounded-md border border-background-secondary">
         <Table>
           <TableHeader>

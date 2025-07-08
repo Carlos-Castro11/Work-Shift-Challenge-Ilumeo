@@ -1,17 +1,17 @@
 import { Button } from '@/components/ui/button'
 import { useLogout } from '@/hooks/user/useLogout'
-import { useIsMenuExpanded } from '@/store/useMenuExpanded'
+import { useIsMenuExpandedStore } from '@/store/useMenuExpandedStore'
 import { menuList } from '..'
 import MenuHamburguer from '../MenuButton'
 import MenuItem from '../MenuItem'
 
 export default function MenuMobile() {
-  const isOpen = useIsMenuExpanded((state) => state.isMenuExpanded)
+  const menuState = useIsMenuExpandedStore((state) => state)
   const logout = useLogout()
   return (
     <>
       <MenuHamburguer />
-      {isOpen && (
+      {menuState.isMenuExpanded && (
         <nav
           className={`bg-background-secondary border-t border-b border-primary-foreground 
         absolute w-full left-0 z-50 overflow-hidden gap-3 grid p-5 top-14`}>
@@ -21,6 +21,7 @@ export default function MenuMobile() {
               text={menu.text}
               link={menu.link}
               icon={menu.icon}
+              onClick={() => menuState.setIsMenuExpanded(false)}
             />
           ))}
           <Button onClick={logout} size={'sm'} variant={'destructive'}>

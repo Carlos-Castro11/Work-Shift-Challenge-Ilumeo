@@ -1,8 +1,8 @@
 import { TableHead, TableRow } from '@/components/ui/table'
-import useMedia from '@/hooks/useMedia'
+import { useIsDesktopStore } from '@/store/useIsDesktopStore'
 
 export function WorkShiftTableHeader() {
-  const isDesktop = useMedia('(min-width: 768px)')
+  const isDesktop = useIsDesktopStore((state) => state.isDesktop)
   return (
     <TableRow className="uppercase text-xs lg:text-sm">
       <TableHead className="text-center">Data</TableHead>

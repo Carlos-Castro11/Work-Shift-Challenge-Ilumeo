@@ -6,7 +6,7 @@ type MenuExpandedState = {
   setIsMenuExpanded: (isMenuExpanded: boolean) => void
 }
 
-export const useIsMenuExpanded = create<MenuExpandedState>()(
+export const useIsMenuExpandedStore = create<MenuExpandedState>()(
   persist(
     (set) => ({
       isMenuExpanded: false,

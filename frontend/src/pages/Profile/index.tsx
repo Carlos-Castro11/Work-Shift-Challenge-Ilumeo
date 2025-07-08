@@ -2,13 +2,14 @@ import FadeIn from '@/components/common/Animations/FadeIn'
 import HeadPageTitle from '@/components/common/HeadPageTitle'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import useMedia from '@/hooks/useMedia'
 import { useAuthStore } from '@/store/useAuthStore'
+import { useIsDesktopStore } from '@/store/useIsDesktopStore'
 import profileImg from '../../assets/images/profile.avif'
 
 export default function Profile() {
   const user = useAuthStore((state) => state.user)
-  const isDesktop = useMedia('(min-width: 1024px)')
+  const isDesktop = useIsDesktopStore((state) => state.isDesktop)
+
   return (
     <>
       <HeadPageTitle title={'Perfil'} />
