@@ -1,4 +1,3 @@
-import { Button } from '@/components/ui/button'
 import { useLogout } from '@/hooks/user/useLogout'
 import { useIsMenuExpandedStore } from '@/store/useMenuExpandedStore'
 import { LogOut } from 'lucide-react'
