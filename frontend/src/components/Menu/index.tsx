@@ -14,7 +14,7 @@ export type TypeMenuItem = {
   link: string
 }
 
-const menuList = [
+export const menuList = [
   {
     id: 10,
     text: 'Relação de turnos',

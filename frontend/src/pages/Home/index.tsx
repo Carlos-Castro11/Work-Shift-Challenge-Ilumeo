@@ -11,7 +11,7 @@ export default function Home() {
     <>
       <HeadPageTitle title="Turnos" />
       <ShiftDashboard />
-      <div className="space-y-5 mt-7 lg:mt-14 overflow-hidden">
+      <div className="space-y-5 mt-7 lg:mt-11 overflow-hidden">
         {isDesktop ? <WorkShiftTableFilter /> : <FiltersMobile />}
         <WorkShiftTable />
       </div>

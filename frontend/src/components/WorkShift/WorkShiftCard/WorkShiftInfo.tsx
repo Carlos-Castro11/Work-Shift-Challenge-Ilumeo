@@ -1,9 +1,10 @@
+import FadeIn from '@/components/common/Animations/FadeIn'
+import { Skeleton } from '@/components/ui/skeleton'
 import { useTodayShiftStore } from '@/store/useTodayWotkShiftStore'
 import { getFormattedDate } from '@/utils/getFormattedDate'
 import { msToTimeParts, pad } from '@/utils/time'
 import { Info } from 'lucide-react'
 import CardBase from '../../common/Card'
-import FadeIn from '@/components/common/Animations/FadeIn'
 
 export default function WorkShiftInfo() {
   const todayWorkShifts = useTodayShiftStore((state) => state.todayShifts)
@@ -19,24 +20,35 @@ export default function WorkShiftInfo() {
   const formattedDate = getFormattedDate()
 
   return (
-    <FadeIn direction='left' className='h-full'>
+    <FadeIn direction="left" className="h-full">
       <CardBase title="Informações adicionais:" icon={<Info />}>
         <p className="xl:text-sm text-foreground">{formattedDate}</p>
-        <p className="xl:text-sm">
-          Turnos realizados hoje:{' '}
-          <span className="font-bold text-foreground xl:text-sm">
-            {todayWorkShifts?.length === 0
-              ? 'Nenhum turno registrado'
-              : `${todayWorkShifts?.length} ${todayWorkShifts?.length === 1 ? 'turno' : 'turnos'}`}
+        <div className="flex gap-2 items-center">
+          <span className="xl:text-sm text-nowrap">
+            Turnos realizados hoje:{' '}
           </span>
-        </p>
-        <p className="xl:text-sm">
-          Carga horária realizada no dia:{' '}
+          {todayWorkShifts ? (
+            todayWorkShifts?.length === 0 ? (
+              'Nenhum turno registrado'
+            ) : (
+              <span className="font-bold text-foreground xl:text-sm">
+                {todayWorkShifts?.length}{' '}
+                {todayWorkShifts?.length === 1 ? 'turno' : 'turnos'}
+              </span>
+            )
+          ) : (
+            <Skeleton className="h-3 w-14" />
+          )}
+        </div>
+        <div className="flex gap-2 items-center">
+          <span className="xl:text-sm text-nowrap">
+            Carga horária realizada no dia:{' '}
+          </span>
           <span className="font-bold text-foreground xl:text-sm">
             {pad(totalWorked.hours)}:{pad(totalWorked.minutes)}:
             {pad(totalWorked.seconds)}
           </span>
-        </p>
+        </div>
       </CardBase>
     </FadeIn>
   )

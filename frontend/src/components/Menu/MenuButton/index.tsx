@@ -15,7 +15,7 @@ export default function MenuHamburguer() {
     <button
       type="button"
       onClick={() => setIsMenuExpanded(!isMenuExpanded)}
-      className="relative w-6 h-6 cursor-pointer">
+      className="relative w-6 h-6 cursor-pointer text-primary">
       <AnimatePresence mode="wait" initial={false}>
         {isMenuExpanded ? (
           <motion.div

@@ -19,7 +19,7 @@ export const authMiddleware: RequestHandler = (req, res, next) => {
   const secret = process.env.JWT_SECRET
 
   if (!secret) {
-    console.error('❌ JWT_SECRET não definido no .env')
+    console.error('JWT_SECRET não definido no .env')
     res.status(500).json({ error: 'Erro interno no servidor.' })
     return
   }

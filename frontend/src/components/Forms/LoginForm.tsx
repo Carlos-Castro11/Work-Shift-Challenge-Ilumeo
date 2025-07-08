@@ -4,7 +4,7 @@ import { useLogin } from '@/hooks/user/useLogin'
 import { type LoginSchema, loginSchema } from '@/schemas/login.schema'
 import { errorHelper } from '@/utils/ErrorHelper'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Key, Mail } from 'lucide-react'
+import { Key, LoaderCircle, Mail, StarHalfIcon } from 'lucide-react'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
@@ -20,6 +20,7 @@ export function LoginForm() {
     },
   })
   const login = useLogin()
+  const isLoading = login.isPending
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -30,14 +31,13 @@ export function LoginForm() {
   const onSubmit = async (data: LoginSchema) => {
     try {
       const res = await login.mutateAsync(data)
-
       localStorage.setItem('token', res.token)
       toast.success('Login realizado com sucesso!')
       navigate('/')
     } catch (err) {
       const message = errorHelper(err)
       toast.error(message || 'Erro ao fazer login')
-      console.error('❌ Erro no login:', err)
+      console.error('Erro no login:', err)
     }
   }
 
@@ -58,8 +58,17 @@ export function LoginForm() {
             type="password"
           />
         </div>
-        <Button type="submit" className="w-full">
-          Entrar
+        <Button
+          disabled={isLoading}
+          type="submit"
+          className={`${isLoading && 'cursor-wait'} w-full`}>
+          {isLoading ? (
+            <span className="animate-spin">
+              <LoaderCircle />
+            </span>
+          ) : (
+            'Entrar'
+          )}
         </Button>
       </form>
     </Form>
