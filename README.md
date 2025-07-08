@@ -5,6 +5,12 @@ Aplicação full stack desenvolvida em 4 dias para o desafio técnico da Ilumeo,
 🔗 **Acesse a aplicação:**  
 https://work-shift-challenge-ilumeo-aqwd.vercel.app/
 
+> ⚠️ **Aviso sobre o servidor (Render Free Tier)**  
+> O back-end desta aplicação está hospedado no plano gratuito da Render, que entra em **modo de hibernação após alguns minutos de inatividade**.  
+> Ao acessar a aplicação pela primeira vez após um tempo parado, o servidor pode levar **30 segundos** ou mais para acordar, resultando em erros temporários como CORS ou falha na autenticação.
+>
+> Basta **aguardar alguns minutos e recarregar a página**, que o sistema volta a funcionar normalmente.
+
 🎨 **Releitura do Figma (obrigatória):**  
 https://www.figma.com/design/lMRRaHuKc524lAoiaZT18N/Ilumeo---Teste-Fullstack?node-id=0-1&t=csXAXyjTRUNNGGic-1
 
