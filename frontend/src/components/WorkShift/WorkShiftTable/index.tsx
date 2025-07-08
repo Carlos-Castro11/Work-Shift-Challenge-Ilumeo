@@ -80,32 +80,29 @@ export function WorkShiftTable() {
     return (
       <div className="space-y-2">
         {[...Array(10)].map((_, i) => (
-          // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
           <Skeleton key={i} className="h-12 w-full rounded-md" />
         ))}
       </div>
     )
   }
 
-  if (shouldShowEmpty) {
-    return (
-      <p className="text-muted-foreground font-secondary text-xs md:text-sm">
-        Nenhum turno registrado no período solicitado.
-      </p>
-    )
-  }
-
   return (
     <FadeIn direction="bottom" className="space-y-5">
       {isDesktop ? <WorkShiftTableFilter /> : <FiltersMobile />}
-      <div className="text-foreground rounded-md border border-border-foreground">
-        <Table>
-          <TableHeader>
-            <WorkShiftTableHeader />
-          </TableHeader>
-          <WorkShiftTableBody shifts={shifts} />
-        </Table>
-      </div>
+      {shouldShowEmpty ? (
+        <p className="text-muted-foreground font-primary text-xs md:text-sm">
+          Nenhum turno registrado no período solicitado.
+        </p>
+      ) : (
+        <div className="text-foreground rounded-md border border-border-foreground">
+          <Table>
+            <TableHeader>
+              <WorkShiftTableHeader />
+            </TableHeader>
+            <WorkShiftTableBody shifts={shifts} />
+          </Table>
+        </div>
+      )}
 
       {pagination && (
         <Pagination

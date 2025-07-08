@@ -7,70 +7,18 @@ import {
   periodOptions,
   statusOptions,
 } from '@/constants/workShiftFilters'
-import {
-  type WorkShiftFiltersType,
-  workShiftFiltersSchema,
-} from '@/schemas/workShift.schema'
-import { parseParam } from '@/utils/parseParams'
-import { zodResolver } from '@hookform/resolvers/zod'
+import { useWorkShiftFilters } from '@/hooks/shift/useWorkShiftFilters'
 import { Filter, X } from 'lucide-react'
 import { useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { useSearchParams } from 'react-router-dom'
 import { toast } from 'sonner'
 
 export function FiltersMobile() {
   const [open, setOpen] = useState(false)
-  const [searchParams, setSearchParams] = useSearchParams()
+  const { control, handleSubmit, updateParams, clearFilters } =
+    useWorkShiftFilters()
 
-  const defaultValues: WorkShiftFiltersType = {
-    filterDateRange:
-      parseParam('filterDateRange', dateOptions, searchParams) ?? 'all',
-    status: parseParam('status', statusOptions, searchParams) ?? 'all',
-    duration: parseParam('duration', durationOptions, searchParams) ?? 'all',
-    startPeriod:
-      parseParam('startPeriod', periodOptions, searchParams) ?? 'all',
-    endPeriod: parseParam('endPeriod', periodOptions, searchParams) ?? 'all',
-  }
-
-  const { control, handleSubmit, reset } = useForm<WorkShiftFiltersType>({
-    resolver: zodResolver(workShiftFiltersSchema),
-    defaultValues,
-  })
-
-  function updateParams(filters: WorkShiftFiltersType) {
-    setSearchParams((urlState) => {
-      for (const [key, value] of Object.entries(filters)) {
-        if (value && value !== 'all') {
-          urlState.set(key, value)
-        } else {
-          urlState.delete(key)
-        }
-      }
-      urlState.set('page', '1')
-      return urlState
-    })
-    setOpen(false)
-  }
-
-  function handleClearFilters() {
-    setSearchParams((urlState) => {
-      urlState.delete('filterDateRange')
-      urlState.delete('status')
-      urlState.delete('duration')
-      urlState.delete('startPeriod')
-      urlState.delete('endPeriod')
-      urlState.set('page', '1')
-      return urlState
-    })
-
-    reset({
-      filterDateRange: 'all',
-      status: 'all',
-      duration: 'all',
-      startPeriod: 'all',
-      endPeriod: 'all',
-    })
+  function handleClear() {
+    clearFilters()
     toast.success('Filtros Removidos!')
   }
 
@@ -144,7 +92,7 @@ export function FiltersMobile() {
         </div>
         <div className="grid grid-cols-2 gap-4 mt-6">
           <Button
-            onClick={handleClearFilters}
+            onClick={handleClear}
             type="button"
             variant="destructive"
             size="sm"

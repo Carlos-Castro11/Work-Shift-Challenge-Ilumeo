@@ -48,7 +48,7 @@ export function FilterSelect<
         <div className="flex flex-col gap-2">
           <Label
             htmlFor=""
-            className="text-muted-foreground font-secondary text-xs">
+            className="text-muted-foreground font-primary text-xs">
             {label}
           </Label>
           <Select
@@ -58,7 +58,7 @@ export function FilterSelect<
               onChangeExtra?.(val)
             }}>
             <SelectTrigger
-              className={`h-8 ${width} font-secondary border-primary-foreground bg-background-secondary transition-colors duration-300 hover:bg-background`}>
+              className={`h-8 ${width} font-primary border-primary-foreground bg-background-secondary transition-colors duration-300 hover:bg-background`}>
               <SelectValue>
                 {field.value
                   ? display[field.value as TValue]

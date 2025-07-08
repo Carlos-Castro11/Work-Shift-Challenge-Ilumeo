@@ -17,16 +17,16 @@ export function WorkShiftRow({ id, start, end }: Props) {
 
   return (
     <TableRow key={id} className="text-xs md:text-sm border-border-foreground">
-      <TableCell className="max-w-4 text-center font-secondary">
+      <TableCell className="max-w-4 text-center font-primary">
         {startDate.toLocaleDateString()}
       </TableCell>
-      <TableCell className="text-center max-w-4 font-secondary">
+      <TableCell className="text-center max-w-4 font-primary">
         {startDate.toLocaleTimeString([], {
           hour: '2-digit',
           minute: '2-digit',
         })}
       </TableCell>
-      <TableCell className="text-center max-w-4 font-secondary">
+      <TableCell className="text-center max-w-4 font-primary">
         {endDate ? (
           endDate.toLocaleTimeString([], {
             hour: '2-digit',
@@ -37,7 +37,7 @@ export function WorkShiftRow({ id, start, end }: Props) {
         )}
       </TableCell>
       {isDesktop && (
-        <TableCell className="max-w-4 text-center font-secondary">
+        <TableCell className="max-w-4 text-center font-primary">
           <span
             className={`relative after:content-[''] after:absolute after:h-[6px] after:w-[6px] 
           after:-left-4 after:bottom-[3px] after:rounded-full
@@ -46,7 +46,7 @@ export function WorkShiftRow({ id, start, end }: Props) {
           </span>
         </TableCell>
       )}
-      <TableCell className="text-center max-w-4 font-secondary">
+      <TableCell className="text-center max-w-4 font-primary">
         {endDate ? `${pad(hours)}h ${pad(minutes)}min` : '—'}
       </TableCell>
     </TableRow>

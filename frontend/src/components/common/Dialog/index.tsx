@@ -45,7 +45,7 @@ export function DialogBase({
           transition-all w-fit duration-300 hover:${hoverBackground}
           `}>
           <i className="text-primary">{icon}</i>
-          <h4 className="font-secondary">{triggerText}</h4>
+          <p className="font-primary">{triggerText}</p>
         </div>
       </DialogTrigger>
 

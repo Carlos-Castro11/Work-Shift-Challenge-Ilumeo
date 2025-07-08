@@ -9,9 +9,9 @@ interface ICardBaseProps {
 
 export default function CardBase({ title, icon, children }: ICardBaseProps) {
   return (
-    <Card className="h-full font-secondary text-sm text-muted-foreground bg-background border-border-foreground">
+    <Card className="h-full font-primary text-sm text-muted-foreground bg-background border-border-foreground">
       <CardHeader>
-        <CardTitle className="text-sm xl:text-base text-foreground font-secondary">
+        <CardTitle className="text-sm xl:text-base text-foreground font-primary">
           <div className="flex gap-2 items-center">
             {icon && <i>{icon}</i>}
             <span>{title}</span>

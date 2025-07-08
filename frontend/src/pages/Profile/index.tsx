@@ -27,7 +27,7 @@ export default function Profile() {
           <FadeIn
             direction="right"
             className="border border-primary-foreground p-5 rounded-lg">
-            <h1 className="text-4xl font-secondary">
+            <h1 className="text-4xl font-primary">
               Olá, {user?.name.split(' ')[0]}!
             </h1>
             <div className="mt-5 space-y-5">

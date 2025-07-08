@@ -78,7 +78,7 @@ export default function WorkShiftClockAndControls() {
       className="space-y-4 p-5 border rounded-lg border-border-foreground h-full place-content-center">
       <div className="grid gap-6 grid-cols-2 border border-border-foreground rounded-lg px-2 py-2">
         <div className="text-center">
-          <span className="text-muted-foreground font-secondary text-xs lg:text-sm">
+          <span className="text-muted-foreground font-primary text-xs lg:text-sm">
             Horário atual
           </span>
           <div className="text-xl md:text-2xl lg:text-xl xl:text-3xl font-sans">
@@ -87,7 +87,7 @@ export default function WorkShiftClockAndControls() {
         </div>
 
         <div className="text-center">
-          <span className="text-muted-foreground font-secondary text-xs lg:text-sm">
+          <span className="text-muted-foreground font-primary text-xs lg:text-sm">
             Cronômetro
           </span>
           <div className="text-xl md:text-2xl lg:text-xl xl:text-3xl font-mono">

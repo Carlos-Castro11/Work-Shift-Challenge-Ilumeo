@@ -48,7 +48,7 @@ export default function MenuItem({ text, icon, link, onClick }: MenuItemProps) {
         {isMenuExpanded && (
           <span
             className={`
-              font-secondary text-sm text-nowrap ml-3
+              font-primary text-sm text-nowrap ml-3
               transition-all duration-300 ease-in-out opacity-100 translate-y-0
             `}>
             {text}

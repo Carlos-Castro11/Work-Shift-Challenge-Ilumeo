@@ -19,16 +19,21 @@
 	"linter": {
 		"enabled": true,
 		"rules": {
-			"style": {
-				"noUnusedTemplateLiteral": "off"
-			},
 			"recommended": true,
+			"style": {
+				"noUnusedTemplateLiteral": "off",
+				"useNodejsImportProtocol": "off",
+				"noNonNullAssertion": "off"
+			},
 			"correctness": {
 				"useExhaustiveDependencies": "off",
 				"noUnusedVariables": {
 					"level": "error",
 					"fix": "none"
 				}
+			},
+			"suspicious": {
+				"noArrayIndexKey": "off"
 			},
 			"a11y": {
 				"useKeyWithClickEvents": "off"

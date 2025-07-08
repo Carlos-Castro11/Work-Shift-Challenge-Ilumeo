@@ -16,7 +16,7 @@ export default function Login() {
           <div className="flex justify-center">
             <img className="max-w-[200px]" src={Logo} alt="Logo Ilumeo" />
           </div>
-          <p className="text-center text-muted-foreground font-secondary">
+          <p className="text-center text-muted-foreground font-primary">
             Bem-vindo ao desafio técnico!
           </p>
           <div>
