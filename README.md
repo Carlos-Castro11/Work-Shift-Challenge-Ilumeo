@@ -5,8 +5,18 @@ Aplicação full stack desenvolvida em 4 dias para o desafio técnico da Ilumeo,
 🔗 **Acesse a aplicação:**  
 https://work-shift-challenge-ilumeo-aqwd.vercel.app/
 
+🔗 **Repositório no GitHub:**  
+https://github.com/seu-usuario/worker-shifts
+
 🎨 **Releitura do Figma (obrigatória):**  
 https://www.figma.com/design/lMRRaHuKc524lAoiaZT18N/Ilumeo---Teste-Fullstack?node-id=0-1&t=csXAXyjTRUNNGGic-1
+
+---
+
+## 🧪 Login para acesso à aplicação
+
+- **Email:** ilumeo@ilumeo.com  
+- **Senha:** 123456
 
 ---
 
@@ -71,7 +81,3 @@ docker compose up
 
 - Front-end: http://localhost:5173
 - Back-end: http://localhost:3333
-
-🧪 Login de teste:  
-- Email: ilumeo@ilumeo.com  
-- Senha: 123456
