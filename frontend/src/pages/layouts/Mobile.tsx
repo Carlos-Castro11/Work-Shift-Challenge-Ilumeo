@@ -1,5 +1,4 @@
 import { Header } from '@/components/Header'
-import Menu from '@/components/Menu'
 import FadeIn from '@/components/common/Animations/FadeIn'
 import PageTitle from '@/components/common/PageTitle'
 import { useTodayShifts } from '@/hooks/shift/useTodayShift'
