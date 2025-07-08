@@ -98,7 +98,7 @@ export function WorkShiftTable() {
   return (
     <FadeIn direction="bottom" className="space-y-5">
       {isDesktop ? <WorkShiftTableFilter /> : <FiltersMobile />}
-      <div className="text-foreground rounded-md border border-background-secondary">
+      <div className="text-foreground rounded-md border border-border-foreground">
         <Table>
           <TableHeader>
             <WorkShiftTableHeader />

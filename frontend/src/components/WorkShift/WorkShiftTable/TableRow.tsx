@@ -16,7 +16,7 @@ export function WorkShiftRow({ id, start, end }: Props) {
   const { hours, minutes } = msToTimeParts(durationMs)
 
   return (
-    <TableRow key={id} className="text-xs md:text-sm border-muted-foreground">
+    <TableRow key={id} className="text-xs md:text-sm border-border-foreground">
       <TableCell className="max-w-4 text-center font-secondary">
         {startDate.toLocaleDateString()}
       </TableCell>

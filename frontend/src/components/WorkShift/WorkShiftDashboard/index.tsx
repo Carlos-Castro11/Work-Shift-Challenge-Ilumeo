@@ -7,7 +7,7 @@ export default function ShiftDashboard() {
   const isDesktop = useIsDesktopStore((state) => state.isDesktop)
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start text-foreground">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start text-foreground overflow-x-hidden">
       <WorkShiftInfo />
       <WorkShiftClockAndControls />
       {isDesktop && <WorkShiftWarning />}

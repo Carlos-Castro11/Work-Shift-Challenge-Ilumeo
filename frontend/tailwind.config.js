@@ -41,6 +41,7 @@ export default {
         foreground: 'hsl(var(--foreground))',
         'primary-foreground': 'hsl(var(--primary-foreground))',
         'background-secondary': 'hsl(var(--background-secondary))',
+        'border-foreground': 'hsl(var(--border-foreground))',
         'text-color': 'hsl(var(--text-color))',
         'text-color-secondary': 'hsl(var(--text-color-secondary))',
         'border-accordian': 'hsl(var(--border-color-accordian))',

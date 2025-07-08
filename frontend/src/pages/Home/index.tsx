@@ -9,7 +9,7 @@ export default function Home() {
     <>
       <HeadPageTitle title="Turnos" />
       <ShiftDashboard />
-      <div className={`${isDesktop && 'mt-10'}`}>
+      <div className={`${isDesktop && 'mt-10'} overflow-hidden`}>
         <WorkShiftTable />
       </div>
     </>

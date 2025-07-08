@@ -25,7 +25,7 @@ export default function MobileLayout() {
   }, [user, setUser, shifts, setTodayShifts])
 
   return (
-    <div className="min-h-screen bg-background p-3 space-y-5">
+    <div className="min-h-screen bg-background p-3 space-y-5 overflow-hidden">
       <div className="flex justify-between items-center">
         <FadeIn direction="left">
           <PageTitle title={pathname === '/' ? 'Turnos' : 'Perfil'} />

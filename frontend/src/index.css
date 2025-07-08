@@ -23,7 +23,8 @@
 		--border: 240 5.9% 90%;
 		--input: 240 5.9% 90%;
 		--radius: 0.5rem;
-		--background-secondary: 0 0% 93%;
+		--background-secondary: 0 0% 94%;
+		--border-foreground: 0 0% 80%;
 		--text-color: 0 0% 20%;
 		--text-color-secondary: 0 0% 45%;
 		--border-color-accordian: 0 0% 60%;
@@ -68,6 +69,7 @@
 		--input: 240 3.7% 15.9%;
 		--radius: 0.5rem;
 		--background-secondary: 0 0% 17%;
+		--border-foreground: 0 0% 20%;
 		--text-color: 0 0% 100%;
 		--text-color-secondary: 0 0% 70%;
 		--border-color-accordian: 0 0% 80%;

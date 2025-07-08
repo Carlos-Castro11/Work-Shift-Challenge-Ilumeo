@@ -75,8 +75,8 @@ export default function WorkShiftClockAndControls() {
   return (
     <FadeIn
       direction="top"
-      className="space-y-4 p-5 border rounded-lg border-background-secondary h-full place-content-center">
-      <div className="grid gap-6 grid-cols-2 border border-background-secondary rounded-lg px-2 py-2">
+      className="space-y-4 p-5 border rounded-lg border-border-foreground h-full place-content-center">
+      <div className="grid gap-6 grid-cols-2 border border-border-foreground rounded-lg px-2 py-2">
         <div className="text-center">
           <span className="text-muted-foreground font-secondary text-xs lg:text-sm">
             Horário atual
