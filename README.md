@@ -1,76 +1,77 @@
-# ⏱️ Worker Shifts - Desafio Técnico Ilumeo
+# ⏱️ Worker Shifts — Desafio Técnico Fullstack | Ilumeo Data Science
 
-Aplicação full stack para controle de ponto. Esta versão roda completamente com **Docker**, sem necessidade de instalar Node.js ou PostgreSQL localmente.
+Aplicação full stack desenvolvida em 4 dias para o desafio técnico da Ilumeo, com foco em controle de ponto de colaboradores. O sistema permite registrar turnos de trabalho, acompanhar a carga horária diária e consultar o histórico de jornadas anteriores.
+
+🔗 **Acesse a aplicação:**  
+https://work-shift-challenge-ilumeo-aqwd.vercel.app/
+
+🎨 **Releitura do Figma (obrigatória):**  
+https://www.figma.com/design/lMRRaHuKc524lAoiaZT18N/Ilumeo---Teste-Fullstack?node-id=0-1&t=csXAXyjTRUNNGGic-1
 
 ---
 
-## 🐳 Requisitos
+## 🛠️ Tecnologias utilizadas
 
-- Docker instalado (https://www.docker.com/products/docker-desktop)
-- Git (para clonar o repositório)
+- **Front-end:** React, Vite, TypeScript
+- **Back-end:** Node.js, Express, TypeScript
+- **Banco de dados:** PostgreSQL com Prisma ORM
+- **Infraestrutura:** Docker e Docker Compose
 
 ---
 
-## 🚀 Como rodar com Docker
+## ✅ Requisitos obrigatórios do desafio
 
-**1. Clone o repositório:**
+- [x] Visualização das horas trabalhadas no dia atual
+- [x] Início e fim de turnos
+- [x] Histórico de horas trabalhadas nos dias anteriores
+- [x] Releitura do protótipo no Figma
+- [x] Docker
+- [x] S.O.L.I.D.
+- [x] Uso de TypeScript
+- [x] Testes automatizados
+- [x] ESLint e Prettier
+- [x] Código limpo e semântico
+- [x] Responsividade no front-end
+- [x] Conexão com banco de dados via ORM
+
+---
+
+## ✨ Funcionalidades adicionais implementadas
+
+- [x] Login com autenticação JWT (sem refresh)
+- [x] Cronômetro com persistência mesmo após logout ou refresh
+- [x] Tela de perfil minimalista
+- [x] Deploy completo com Docker, Vercel (Front) e Render (Back)
+- [x] Organização modular por domínio (DDD leve)
+
+---
+
+## 🐳 Como rodar com Docker
+
+### Pré-requisitos
+
+- Docker instalado
+- Git
+
+### Passos
 
 ```bash
+# Clone o repositório
 git clone https://github.com/seu-usuario/worker-shifts.git
 cd worker-shifts
-```
 
-**2. Construa os containers:**
-
-```bash
+# Construa os containers
 docker compose build --no-cache
-```
 
-**3. Suba a aplicação:**
-
-```bash
+# Inicie a aplicação
 docker compose up
 ```
 
-Isso irá:
+📌 A aplicação será exposta nas seguintes portas:
 
-- Subir o banco PostgreSQL
-- Iniciar o back-end (Node + Prisma)
-- Iniciar o front-end (Vite + React)
-- Executar as migrations e o seed automaticamente
-
----
-
-## 🔐 Login de teste
-
-- Email: ilumeo@ilumeo.com  
-- Senha: 123456
-
----
-
-## 🌐 Acessos locais
-
-- Front-end: http://localhost:5173  
+- Front-end: http://localhost:5173
 - Back-end: http://localhost:3333
 
----
-
-## 📁 Estrutura do projeto
-
-```
-.
-├── backend/           → API Express + Prisma + PostgreSQL
-├── frontend/          → Aplicação Vite + React
-├── docker-compose.yaml
-├── README.md
-```
-
----
-
-## ✅ Funcionalidades entregues
-
-- [x] Login com autenticação JWT
-- [x] Registro de ponto (início e fim do turno)
-- [x] Histórico de turnos
-- [x] Página de perfil
-- [x] Seed automático com 1 usuário e 50 turnos
+🧪 Login de teste:  
+- Email: ilumeo@ilumeo.com  
+- Senha: 123456
