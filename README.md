@@ -2,7 +2,7 @@
 
 Aplicação full stack desenvolvida em 4 dias para o desafio técnico da Ilumeo, com foco em controle de ponto de colaboradores. O sistema permite registrar turnos de trabalho, acompanhar a carga horária diária e consultar o histórico de jornadas anteriores.
 
-🔗 **Acesse a aplicação:**  
+🔗 **Acesse a aplicação:**   
 https://work-shift-challenge-ilumeo-aqwd.vercel.app/
 
 > ⚠️ **Aviso sobre o servidor (Render Free Tier)**  
